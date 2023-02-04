@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chango&family=Inter:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div>
+        <ul class="favorite-cities">
+          <li>
+            <a href="#">Kyiv</a>
+          </li>
+          <li>
+            <a href="#">London </a>
+          </li>
+          <li>
+            <a href="#"> Lisbon </a>
+          </li>
+          <li>
+            <a href="#"> Warsaw </a>
+          </li>
+          <li>
+            <a href="#"> Rome </a>
+          </li>
+        </ul>
+      </div>
+
+      <form class="weather-form">
+        <input type="text" class="search-input" placeholder="Enter a city" autofocus="on" autocomplete="off"/>
+        <button type="button" class="btn btn-search">Serch</button>
+        <button type="button" class="btn btn-current">Current</button>
+      </form>
+
+      <div class="current-place-date">
+        <h1  class="heding">Irpin</h1>
+        <p class="time">Saturday</p>
+        <p class="time">14:13</p>
+      </div>
+
+      <div class="current-weather">
+        <div class="current-weather__left">
+          <p class="weather-state">Clear</p>
+          <img class="weather-icon" src="img/sunny-icon.png" alt="" />
+          <p class="temperature">1°C</p>
+        </div>
+
+        <div class="current-weathe-right">
+          <div class="precipitation">
+            <p>Precipitation:</p>
+            <p class="time">64%</p>
+          </div>
+          <div class="wind">
+            <p >Wind:</p>
+            <p class="time">4km/h</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-five-days">
+        <div class="weather-day">
+          <p class="day">Sun</p>
+          <img src="img/sunny.png" alt="sun picture" />
+          <p class="numbers">-2°</p>
+        </div>
+
+        <div class="weather-day">
+          <p class="day">Mon</p>
+          <img src="img/partly-cloudy-icon.png" alt="sun picture" />
+          <p class="numbers">-1°</p>
+        </div>
+
+        <div class="weather-day">
+          <p class="day">Tue</p>
+          <img src="img/drizzle-sunny-icon.png" alt="sun picture" />
+          <p class="numbers">1°</p>
+        </div>
+
+        <div class="weather-day">
+          <p class="day">Wed</p>
+          <img src="img/sleet-icon.png" alt="sun picture" />
+          <p class="numbers">0°</p>
+        </div>
+
+        <div class="weather-day">
+          <p class="day">Thu</p>
+          <img src="img/cloudy-icon.png" alt="sun picture" />
+          <p class="numbers">1°</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+        <p class="design">Designed by Hanna Tubolets</p>
+    </footer>
+    <script src="src/index.js"></script>
+  </body>
+</html>

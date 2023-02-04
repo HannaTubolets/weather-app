@@ -1,0 +1,210 @@
+body {
+  font-family: 'Chango', cursive;
+  font-family: 'Inter', sans-serif;
+  color: #282c30;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+    padding: 20px 135px 0;
+}
+
+.btn {
+    font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  width: 186px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-search {
+  color: #ffffff;
+  background: #3983c6;
+}
+
+.btn-search:hover {
+  background: #429bee;
+}
+
+.btn-current {
+  background: #ffd702;
+}
+
+.btn-current:hover {
+  background: #fde039;
+}
+
+.search-input {
+  font-size: 18px;
+  line-height: 1.2;
+  width: 495px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 6px 0px #3983c640;
+  padding: 9px 20px;
+}
+
+.search-input:focus-visible {
+  border: 1px solid #3983c6;
+  outline: none;
+}
+
+/* input.reg::placeholder {
+    color:  rgba(84, 78, 78, 1);
+} */
+
+.favorite-cities {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.weather-form {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 260px;
+  background: #f3fcff;
+  margin-bottom: 20px;
+  padding: 16px 40px;
+  border-radius: 10px;
+}
+
+.weather-five-days {
+  display: flex;
+  justify-content: space-between;
+  background: #fffacd;
+  margin-bottom: 35px;
+  padding: 16px 40px;
+  border-radius: 10px;
+}
+
+.weather-day {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+
+    transition-property: background-color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.weather-day:hover {
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.current-weather__left {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.precipitation,
+.wind {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.precipitation {
+    margin-bottom: 10px;
+}
+
+.current-place-date {
+  display: flex;
+  gap: 30px;
+  align-items: baseline;
+  margin-bottom: 30px;
+}
+
+.design {
+  text-align: center;
+}
+
+.day {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #3983c6;
+}
+
+.heding {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.temperature {
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.weather-state {
+    font-size: 24px;
+}
+
+.current-weathe-right {
+    font-size: 21px;
+}
+
+.numbers {
+    font-size: 18px;
+}
+
+.time {
+    font-size: 21px;
+    font-weight: 300;
+    color: #3983c6;
+}
+
+.design {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
