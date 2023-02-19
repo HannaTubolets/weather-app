@@ -35,11 +35,11 @@ img {
 }
 
 .section {
-    padding: 20px 135px 0;
+  padding: 20px 135px 0;
 }
 
 .btn {
-    font-family: inherit;
+  font-family: inherit;
   font-size: 18px;
   font-weight: 500;
   width: 186px;
@@ -74,7 +74,7 @@ img {
   line-height: 1.2;
   width: 495px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #ffffff;
   box-shadow: 0px 0px 6px 0px #3983c640;
   padding: 9px 20px;
 }
@@ -129,14 +129,15 @@ img {
   background-color: #ffffff;
   border-radius: 6px;
 
-    transition-property: background-color, box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color, box-shadow, transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .weather-day:hover {
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .current-weather__left {
@@ -153,7 +154,7 @@ img {
 }
 
 .precipitation {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .current-place-date {
@@ -181,30 +182,30 @@ img {
 }
 
 .temperature {
-    font-size: 32px;
-    line-height: 1.2;
+  font-size: 32px;
+  line-height: 1.2;
 }
 
 .weather-state {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .current-weathe-right {
-    font-size: 21px;
+  font-size: 21px;
 }
 
 .numbers {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .time {
-    font-size: 21px;
-    font-weight: 300;
-    color: #3983c6;
+  font-size: 21px;
+  font-weight: 300;
+  color: #3983c6;
 }
 
 .design {
-    font-size: 14px;
-    font-weight: 300;
-    margin-bottom: 40px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 40px;
 }
