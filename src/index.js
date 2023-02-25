@@ -65,7 +65,7 @@ function searchCityWeather(city) {
   axios.get(API_URL).then(displayWeather);
 }
 
-//! To get searched city (btn search + submit)
+//! To submit form (btn search + submit)
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector('.search-input').value;
@@ -77,8 +77,8 @@ searchForm.addEventListener('submit', handleSubmit);
 
 searchCityWeather('Irpin');
 
-//! To show current temperature/city/weather state
-function showTemperature(response) {
+//! To show current city weather
+function showCurrentCityWeather(response) {
   console.log(response.data);
 
   let temperature = Math.round(response.data.main.temp);
@@ -98,13 +98,13 @@ function showTemperature(response) {
   onGetTime();
 }
 
-//! To get position + temperature + description(weather state)
+//! To get position for current weather
 function onGetPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let API_KEY = 'cac1dff680f5759730af0dd3a315ae8d';
   let API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
-  axios.get(`${API_URL}`).then(showTemperature);
+  axios.get(`${API_URL}`).then(showCurrentCityWeather);
 }
 navigator.geolocation.getCurrentPosition(onGetPosition);
 
