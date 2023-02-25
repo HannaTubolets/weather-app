@@ -106,7 +106,6 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 260px;
   background: #f3fcff;
   margin-bottom: 20px;
   padding: 16px 40px;
@@ -117,7 +116,7 @@ img {
   display: flex;
   justify-content: space-between;
   background: #fffacd;
-  margin-bottom: 35px;
+  margin-bottom: 48px;
   padding: 16px 40px;
   border-radius: 10px;
 }
@@ -188,6 +187,7 @@ img {
 
 .weather-state {
   font-size: 24px;
+  text-transform: capitalize;
 }
 
 .current-weathe-right {
@@ -208,4 +208,10 @@ img {
   font-size: 14px;
   font-weight: 300;
   margin-bottom: 40px;
+}
+
+.humidity {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
 }
