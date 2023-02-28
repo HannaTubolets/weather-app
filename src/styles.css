@@ -96,6 +96,10 @@ img {
   margin-bottom: 20px;
 }
 
+.favorite-city {
+  color: #429bee;
+}
+
 .weather-form {
   display: flex;
   flex-direction: row;
