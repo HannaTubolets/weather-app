@@ -35,6 +35,17 @@ function onGetTime() {
   return onGetTime;
 }
 
+//! To get time in searched city
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  console.log(date);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let day = date.getDay();
+  return `${day} ${hours}:${minutes} `;
+  // console.log(`${day} ${hours}:${minutes} `);
+}
+
 //! To get weather in searched city
 function displayWeather(response) {
   console.log(response.data);
@@ -47,15 +58,20 @@ function displayWeather(response) {
   let humidityEl = document.querySelector('.js-humidity');
   let humidity = response.data.main.humidity;
   humidityEl.innerHTML = `${humidity}%`;
+
   let wind = Math.round(response.data.wind.speed);
   let windEl = document.querySelector('.js-wind');
   windEl.innerHTML = `${wind}km/h`;
 
+  let dateEl = document.querySelector('.js-day');
+  let date = response.data.dt * 1000;
+  dateEl.innerHTML = formatDate(`${date}`);
+
   document.querySelector('.weather-state').innerHTML =
     response.data.weather[0].description;
 
-  onGetDay();
-  onGetTime();
+  // onGetDay();
+  // onGetTime();
   document.querySelector('.search-input').value = '';
 }
 
