@@ -37,11 +37,21 @@ function onGetTime() {
 
 //! To get time in searched city
 function formatDate(timestamp) {
-  let date = new Date(timestamp);
+  let date = new Date(timestamp * 1000);
   console.log(date);
   let hours = date.getHours();
   let minutes = date.getMinutes();
-  let day = date.getDay();
+  // let day = date.getDay();
+  let days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  let day = days[date.getDay()];
   return `${day} ${hours}:${minutes} `;
   // console.log(`${day} ${hours}:${minutes} `);
 }
@@ -59,19 +69,19 @@ function displayWeather(response) {
   let humidity = response.data.main.humidity;
   humidityEl.innerHTML = `${humidity}%`;
 
-  let wind = Math.round(response.data.wind.speed);
   let windEl = document.querySelector('.js-wind');
+  let wind = Math.round(response.data.wind.speed);
   windEl.innerHTML = `${wind}km/h`;
 
   let dateEl = document.querySelector('.js-day');
   let date = response.data.dt * 1000;
   dateEl.innerHTML = formatDate(`${date}`);
 
+  document.querySelector('.js-hour').innerHTML = '';
+
   document.querySelector('.weather-state').innerHTML =
     response.data.weather[0].description;
 
-  // onGetDay();
-  // onGetTime();
   document.querySelector('.search-input').value = '';
 }
 
