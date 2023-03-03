@@ -40,7 +40,13 @@ function formatDate(timestamp) {
   let date = new Date(timestamp * 1000);
   console.log(date);
   let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
   let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   // let day = date.getDay();
   let days = [
     'Sunday',
@@ -77,10 +83,18 @@ function displayWeather(response) {
   let date = response.data.dt * 1000;
   dateEl.innerHTML = formatDate(`${date}`);
 
+  let iconEl = document.querySelector('.weather-icon');
+
   document.querySelector('.js-hour').innerHTML = '';
 
   document.querySelector('.weather-state').innerHTML =
     response.data.weather[0].description;
+
+  iconEl.setAttribute(
+    'src',
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconEl.setAttribute('alt', response.data.weather[0].description);
 
   document.querySelector('.search-input').value = '';
 }
