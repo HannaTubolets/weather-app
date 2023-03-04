@@ -47,7 +47,7 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  // let day = date.getDay();
+
   let days = [
     'Sunday',
     'Monday',
@@ -84,18 +84,15 @@ function displayWeather(response) {
   dateEl.innerHTML = formatDate(`${date}`);
 
   let iconEl = document.querySelector('.weather-icon');
-
-  document.querySelector('.js-hour').innerHTML = '';
-
-  document.querySelector('.weather-state').innerHTML =
-    response.data.weather[0].description;
-
   iconEl.setAttribute(
     'src',
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconEl.setAttribute('alt', response.data.weather[0].description);
 
+  document.querySelector('.js-hour').innerHTML = '';
+  document.querySelector('.weather-state').innerHTML =
+    response.data.weather[0].description;
   document.querySelector('.search-input').value = '';
 }
 
@@ -155,25 +152,31 @@ function getCurrentPosition() {
 let currentBtnEl = document.querySelector('.btn-current');
 currentBtnEl.addEventListener('click', getCurrentPosition);
 
-//? function showCelsiusTemp() {
-//   let currentTemperatureC = document.querySelector(".current-temperature");
-//   currentTemperatureC.innerHTML = "+1";
-//   let celsiusSign = document.querySelector(".sign");
-//   celsiusSign.innerHTML = "°C";
+//? function displayFahrenheitTemperature(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector('#temperature');
+
+//   celsiusLink.classList.remove('active');
+//   fahrenheitLink.classList.add('active');
+//   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+//   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
 // }
 
-// let celsiusButton = document.querySelector(".celsius");
-// celsiusButton.addEventListener("click", showCelsiusTemp);
-
-//? function showFahrenheitTemp() {
-//   let currentTemperatureF = document.querySelector(".current-temperature");
-//   currentTemperatureF.innerHTML = `+34`;
-//   let fahrenheitSign = document.querySelector(".sign");
-//   fahrenheitSign.innerHTML = "°F";
+//? function displayCelsiusTemperature(event) {
+//   event.preventDefault();
+//   celsiusLink.classList.add('active');
+//   fahrenheitLink.classList.remove('active');
+//   let temperatureElement = document.querySelector('#temperature');
+//   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 // }
 
-// let fahrenheitButton = document.querySelector(".fahrenheit");
-// fahrenheitButton.addEventListener("click", showFahrenheitTemp);
+// let celsiusTemperature = null;
+
+// let fahrenheitLink = document.querySelector('#fahrenheit-link');
+// fahrenheitLink.addEventListener('click', displayFahrenheitTemperature);
+
+// let celsiusLink = document.querySelector('#celsius-link');
+// celsiusLink.addEventListener('click', displayCelsiusTemperature);
 
 //? const API_KEY = 'cac1dff680f5759730af0dd3a315ae8d';
 // let city = 'Irpin';
