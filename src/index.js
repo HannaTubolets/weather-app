@@ -35,7 +35,7 @@ function onGetTime() {
   return onGetTime;
 }
 
-//! To get time in searched city
+//! To get date+time in searched city
 function formatDate(timestamp) {
   let date = new Date(timestamp * 1000);
   console.log(date);
@@ -60,6 +60,60 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes} `;
   // console.log(`${day} ${hours}:${minutes} `);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  return days[day];
+}
+
+//! To show forecast in searched city (5 days)
+function displayForecast(response) {
+  // console.log(response.data.daily);
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector('.weather-five-days');
+
+  let forecastHTML = `<div class="days-wrapper">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="weather-day">
+        <div class="day">${formatDay(forecastDay.dt)}</div>
+        <img 
+          class="img"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="48"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="numbers-max">${Math.round(forecastDay.temp.max)}°</span>
+          <span class="numbers-min">${Math.round(forecastDay.temp.min)}°</span>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+//! To get forcast in searched city for 5 days
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let API_KEY = '2ff29bed3181c3526c35cc5408037f85';
+  let API_URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${API_KEY}&units=metric`;
+  axios.get(API_URL).then(displayForecast);
+  // console.log(API_URL);
 }
 
 //! To get weather in searched city
@@ -94,6 +148,8 @@ function displayWeather(response) {
   document.querySelector('.weather-state').innerHTML =
     response.data.weather[0].description;
   document.querySelector('.search-input').value = '';
+
+  getForecast(response.data.coord);
 }
 
 function searchCityWeather(city) {
@@ -111,8 +167,6 @@ function handleSubmit(event) {
 
 let searchForm = document.querySelector('.weather-form');
 searchForm.addEventListener('submit', handleSubmit);
-
-searchCityWeather('Irpin');
 
 //! To show current city weather
 function showCurrentCityWeather(response) {
@@ -152,58 +206,5 @@ function getCurrentPosition() {
 let currentBtnEl = document.querySelector('.btn-current');
 currentBtnEl.addEventListener('click', getCurrentPosition);
 
-//? function displayFahrenheitTemperature(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.querySelector('#temperature');
-
-//   celsiusLink.classList.remove('active');
-//   fahrenheitLink.classList.add('active');
-//   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-//   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-// }
-
-//? function displayCelsiusTemperature(event) {
-//   event.preventDefault();
-//   celsiusLink.classList.add('active');
-//   fahrenheitLink.classList.remove('active');
-//   let temperatureElement = document.querySelector('#temperature');
-//   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-// }
-
-// let celsiusTemperature = null;
-
-// let fahrenheitLink = document.querySelector('#fahrenheit-link');
-// fahrenheitLink.addEventListener('click', displayFahrenheitTemperature);
-
-// let celsiusLink = document.querySelector('#celsius-link');
-// celsiusLink.addEventListener('click', displayCelsiusTemperature);
-
-//? const API_KEY = 'cac1dff680f5759730af0dd3a315ae8d';
-// let city = 'Irpin';
-// const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-// API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
-
-//? Geolocation
-// function showPosition(position) {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     alert('Geolocation is not supported by this browser.');
-//   }
-//   console.log(position.coords.latitude);
-//   console.log(position.coords.longitude);
-// }
-// navigator.geolocation.getCurrentPosition(showPosition);
-
-//? To get city/input
-// function onSerchCity(event) {
-//   event.preventDefault();
-//   let cityEl = document.querySelector('.city');
-//   let searchCityInput = document.querySelector('.search-input');
-//   cityEl.innerHTML = searchCityInput.value;
-//   onGetDay();
-//   onGetTime();
-//   searchCityInput.value = '';
-// }
-// let searchForm = document.querySelector('.weather-form');
-// searchForm.addEventListener('submit', onSerchCity);
+searchCityWeather('Irpin');
+displayForecast();

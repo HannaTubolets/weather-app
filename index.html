@@ -15,115 +15,125 @@
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
-    <section class="section">
-      <div>
-        <ul class="favorite-cities">
-          <li>
-            <a class="favorite-city" href="#">Kyiv</a>
-          </li>
-          <li>
-            <a class="favorite-city" href="#">London </a>
-          </li>
-          <li>
-            <a class="favorite-city" href="#"> Lisbon </a>
-          </li>
-          <li>
-            <a class="favorite-city" href="#"> Warsaw </a>
-          </li>
-          <li>
-            <a class="favorite-city" href="#"> Rome </a>
-          </li>
-          <li>
-            <a class="favorite-city" href="#"> Paris </a>
-          </li>
-        </ul>
+    <div class="intro">
+      <div class="intro-media">
+        <video
+          class="intro-media-video"
+          src="./img/video.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
       </div>
-
-      <form class="weather-form">
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Enter a city"
-          autofocus="on"
-          autocomplete="off"
-        />
-        <button type="submit" class="btn btn-search">Search</button>
-        <button type="button" class="btn btn-current">Current</button>
-      </form>
-
-      <div class="current-place-date">
-        <h1 class="city">Irpin</h1>
-        <p>Last updated: <span class="time js-day"></span></p>
-        <p class="time js-hour">14:13</p>
-      </div>
-
-      <div class="current-weather">
-        <div class="current-weather__left">
-          <p class="weather-state">Clear</p>
-          <img
-            class="weather-icon"
-            width="64"
-            height="64"
-            src="img/weather-gif-icons/light-clouds.gif"
-            alt=""
+      <div class="intro-content">
+        <div>
+          <ul class="favorite-cities">
+            <li>
+              <a class="favorite-city" href="#">Kyiv</a>
+            </li>
+            <li>
+              <a class="favorite-city" href="#">London </a>
+            </li>
+            <li>
+              <a class="favorite-city" href="#"> Lisbon </a>
+            </li>
+            <li>
+              <a class="favorite-city" href="#"> Warsaw </a>
+            </li>
+            <li>
+              <a class="favorite-city" href="#"> Rome </a>
+            </li>
+            <li>
+              <a class="favorite-city" href="#"> Paris </a>
+            </li>
+          </ul>
+        </div>
+        <form class="weather-form">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Enter a city"
+            autofocus="on"
+            autocomplete="off"
           />
-          <p class="temperature">1°C</p>
+          <button type="submit" class="btn btn-search">Search</button>
+          <button type="button" class="btn btn-current">Current</button>
+        </form>
+        <div class="current-place-date">
+          <h1 class="city">Irpin</h1>
+          <p class="last-update">
+            Last updated: <span class="time js-day"></span>
+          </p>
+          <p class="time js-hour">14:13</p>
         </div>
-
-        <div class="current-weathe-right">
-          <div class="humidity">
-            <p>Humidity:</p>
-            <p class="time js-humidity">64%</p>
+        <div class="current-weather">
+          <div class="current-weather__left">
+            <p class="weather-state">Clear</p>
+            <img
+              class="weather-icon"
+              width="64"
+              height="64"
+              src="img/weather-gif-icons/light-clouds.gif"
+              alt=""
+            />
+            <p class="temperature">1°C</p>
           </div>
-          <div class="wind">
-            <p>Wind:</p>
-            <p class="time js-wind">4km/h</p>
+
+          <div class="current-weather-right">
+            <div class="humidity">
+              <p>Humidity:</p>
+              <p class="wind-number js-humidity">64%</p>
+            </div>
+            <div class="wind">
+              <p>Wind:</p>
+              <p class="wind-number js-wind">4km/h</p>
+            </div>
           </div>
         </div>
+        <div class="weather-five-days">
+          <!-- <div class="weather-day">
+            <p class="day">Sun</p>
+            <img src="img/weather-gif-icons/sun.gif" alt="sun picture" />
+            <p class="numbers">-2°</p>
+          </div>
+  
+          <div class="weather-day">
+            <p class="day">Mon</p>
+            <img
+              src="img/weather-gif-icons/light-clouds-rain.gif"
+              alt="sun picture"
+            />
+            <p class="numbers">-1°</p>
+          </div>
+  
+          <div class="weather-day">
+            <p class="day">Tue</p>
+            <img src="img/weather-gif-icons/snow.gif" alt="sun picture" />
+            <p class="numbers">1°</p>
+          </div>
+  
+          <div class="weather-day">
+            <p class="day">Wed</p>
+            <img src="img/weather-gif-icons/snow-rain.gif" alt="sun picture" />
+            <p class="numbers">0°</p>
+          </div>
+  
+          <div class="weather-day">
+            <p class="day">Thu</p>
+            <img src="img/weather-gif-icons/clouds.gif" alt="sun picture" />
+            <p class="numbers">1°</p>
+          </div> -->
+        </div>
+        <footer>
+          <p class="design">Designed by Hanna Tubolets</p>
+          <a
+            class="footer-link"
+            href="https://github.com/HannaTubolets/weather-app"
+            >See on GitHub</a
+          >
+        </footer>
       </div>
-
-      <div class="weather-five-days">
-        <div class="weather-day">
-          <p class="day">Sun</p>
-          <img src="img/weather-gif-icons/sun.gif" alt="sun picture" />
-          <p class="numbers">-2°</p>
-        </div>
-
-        <div class="weather-day">
-          <p class="day">Mon</p>
-          <img
-            src="img/weather-gif-icons/light-clouds-rain.gif"
-            alt="sun picture"
-          />
-          <p class="numbers">-1°</p>
-        </div>
-
-        <div class="weather-day">
-          <p class="day">Tue</p>
-          <img src="img/weather-gif-icons/snow.gif" alt="sun picture" />
-          <p class="numbers">1°</p>
-        </div>
-
-        <div class="weather-day">
-          <p class="day">Wed</p>
-          <img src="img/weather-gif-icons/snow-rain.gif" alt="sun picture" />
-          <p class="numbers">0°</p>
-        </div>
-
-        <div class="weather-day">
-          <p class="day">Thu</p>
-          <img src="img/weather-gif-icons/clouds.gif" alt="sun picture" />
-          <p class="numbers">1°</p>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p class="design">Designed by Hanna Tubolets</p>
-      <a class="footer-link" href="https://github.com/HannaTubolets/weather-app"
-        >See on GitHub</a
-      >
-    </footer>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
