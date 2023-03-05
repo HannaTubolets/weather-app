@@ -49,7 +49,7 @@ img {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #ccc url(../img/cover.jpg) none repeat 50% 50%;
+  background: #79afe9;
   background-size: cover;
 }
 
