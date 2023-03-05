@@ -91,7 +91,7 @@ function displayForecast(response) {
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="48"
+          width="64"
         />
         <div class="weather-forecast-temperatures">
           <span class="numbers-max">${Math.round(forecastDay.temp.max)}°</span>
@@ -104,13 +104,13 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
+  // console.log(forecastHTML);
 }
 
 //! To get forcast in searched city for 5 days
 function getForecast(coordinates) {
   console.log(coordinates);
-  let API_KEY = '2ff29bed3181c3526c35cc5408037f85';
+  let API_KEY = '2daf65f0cdaa917f11026e8a128ce271';
   let API_URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${API_KEY}&units=metric`;
   axios.get(API_URL).then(displayForecast);
   // console.log(API_URL);
@@ -208,3 +208,63 @@ currentBtnEl.addEventListener('click', getCurrentPosition);
 
 searchCityWeather('Irpin');
 displayForecast();
+
+//! let kyivEl = document.querySelector('.js-kyiv');
+// kyivEl.addEventListener('click', searchCityWeather());
+// searchCityWeather('Kyiv');
+
+//? function displayFahrenheitTemperature(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector('#temperature');
+
+//   celsiusLink.classList.remove('active');
+//   fahrenheitLink.classList.add('active');
+//   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+//   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+// }
+
+//? function displayCelsiusTemperature(event) {
+//   event.preventDefault();
+//   celsiusLink.classList.add('active');
+//   fahrenheitLink.classList.remove('active');
+//   let temperatureElement = document.querySelector('#temperature');
+//   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+// }
+
+// let celsiusTemperature = null;
+
+// let fahrenheitLink = document.querySelector('#fahrenheit-link');
+// fahrenheitLink.addEventListener('click', displayFahrenheitTemperature);
+
+// let celsiusLink = document.querySelector('#celsius-link');
+// celsiusLink.addEventListener('click', displayCelsiusTemperature);
+
+//? const API_KEY = 'cac1dff680f5759730af0dd3a315ae8d';
+// let city = 'Irpin';
+// const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+// API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+
+//? Geolocation
+// function showPosition(position) {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition);
+//   } else {
+//     alert('Geolocation is not supported by this browser.');
+//   }
+//   console.log(position.coords.latitude);
+//   console.log(position.coords.longitude);
+// }
+// navigator.geolocation.getCurrentPosition(showPosition);
+
+//? To get city/input
+// function onSerchCity(event) {
+//   event.preventDefault();
+//   let cityEl = document.querySelector('.city');
+//   let searchCityInput = document.querySelector('.search-input');
+//   cityEl.innerHTML = searchCityInput.value;
+//   onGetDay();
+//   onGetTime();
+//   searchCityInput.value = '';
+// }
+// let searchForm = document.querySelector('.weather-form');
+// searchForm.addEventListener('submit', onSerchCity);
